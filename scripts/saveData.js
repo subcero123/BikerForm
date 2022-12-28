@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-import { getDatabase, ref, set, get, child, onValue } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js'
+import { getDatabase, ref, set, get, child, onValue, update } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js'
 const firebaseConfig = {
     apiKey: "AIzaSyAM-fgjeUOQy-x4vDaRhfBOAG6HoYV4ST0",
     authDomain: "formproject-f7bd3.firebaseapp.com",
@@ -15,27 +15,38 @@ const app = initializeApp(firebaseConfig);
 
 
 // Initialize Realtime Database and get a reference to the service
-const database = getDatabase(app);
+var database = getDatabase(app);
 
+// Get population value at startup
 async function getPop(){
   var population = get(child(ref(database), `users/Pop`)).then((snapshot) => {
     return snapshot.val(); 
   })
+  console.log(population);
   return population;
 };
-  
-const population = await getPop();
+var population = await getPop();
+
+// Get population on data change (Another user updated the population count)
+onValue(ref(database, 'users/Pop'), (snapshot) => {
+  population = snapshot.val();
+  console.log(population);
+});
 
 // Save message to firebase
-function saveMessage(name, age, country, gender, bikerGroupName){
-
-  set(ref(database, 'users/' + population), {
+function saveMessage(name, age, country, gender, bikerGroupName, population){
+  population = population +1;
+  update(ref(database, 'users/'), {
+    Pop: population
+  });
+  update(ref(database, 'users/' + population), {
     name: name,
     age: age,
     country: country,
     gender: gender,
     bGroup: bikerGroupName,
   });
+  
 }
 
 
@@ -64,7 +75,7 @@ function submitForm(e){
     }
     
     if(document.getElementById('biker-yes').checked == true){
-      var bikerGroupName = getInputVal(bikerGroupName);
+      var bikerGroupName = getInputVal(bikerInput);
     }
     else if (document.getElementById('biker-no').checked == true){
       var bikerGroupName = "No";
@@ -74,10 +85,11 @@ function submitForm(e){
     }
   
 
+    //Actualizar poblacion
     
 
     // Save message
-    saveMessage(name,age, country, gender, bikerGroupName);
+    saveMessage(name,age, country, gender, bikerGroupName, population);
 
     // Clear form
     document.getElementById('contactForm').reset();
