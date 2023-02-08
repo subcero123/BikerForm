@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
 import { getDatabase, ref, set, get, child, onValue, update } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js'
+import { getStorage, ref as refStorage, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js';
 const firebaseConfig = {
     apiKey: "AIzaSyAM-fgjeUOQy-x4vDaRhfBOAG6HoYV4ST0",
     authDomain: "formproject-f7bd3.firebaseapp.com",
@@ -15,6 +16,7 @@ const app = initializeApp(firebaseConfig);
 
 
 // Initialize Realtime Database and get a reference to the service
+var storage = getStorage();
 var database = getDatabase(app);
 
 // Get population value at startup
@@ -34,7 +36,7 @@ onValue(ref(database, 'users/Pop'), (snapshot) => {
 });
 
 // Save message to firebase
-function saveMessage(name, age, country, gender, bikerGroupName, population){
+function saveMessage(name, age, country, gender, bikerGroupName, population, file){
   population = population +1;
   update(ref(database, 'users/'), {
     Pop: population
@@ -46,7 +48,10 @@ function saveMessage(name, age, country, gender, bikerGroupName, population){
     gender: gender,
     bGroup: bikerGroupName,
   });
-  
+  var storageRef = refStorage(storage, 'Imagenes/'+population);
+  uploadBytes(storageRef, file).then((snapshot) => {
+    console.log('Imágen subida');
+  }); 
 }
 
 
@@ -63,6 +68,7 @@ function submitForm(e){
     var name = getInputVal('name');
     var age = getInputVal('age');
     var country = getInputVal('country');
+    var file =document.getElementById('fileInput').files[0];
 
     if(document.getElementById('gender-male').checked == true){
         var gender = "Male";
@@ -83,18 +89,13 @@ function submitForm(e){
     else{
       alert("Biker group not selected");
     }
-  
-
-    //Actualizar poblacion
-    
-
     // Save message
-    saveMessage(name,age, country, gender, bikerGroupName, population);
+    saveMessage(name,age, country, gender, bikerGroupName, population, file);
 
     // Clear form
     document.getElementById('contactForm').reset();
 }
-// Function to get get form values
+// Function to get  form values
 function getInputVal(id){
     return document.getElementById(id).value;
 }
