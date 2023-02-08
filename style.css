@@ -249,3 +249,82 @@ select option {
 .button-31:focus {
   opacity: .75;
 }
+
+/* MODAL*/
+
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+ .card {
+	 background: #222;
+	 background-image: linear-gradient(48deg, #fff 0%, #e5efe9 100%);
+	 border-top-right-radius: 16px;
+	 border-bottom-left-radius: 16px;
+	 box-shadow: -20px 20px 35px 1px rgba(10, 49, 86, 0.18);
+	 display: flex;
+	 flex-direction: column;
+	 padding: 32px;
+	 margin: 40px;
+	 max-width: 400px;
+	 width: 100%;
+}
+
+
+.modal-header {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+}
+.close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  height: 16px;
+  text-decoration: none;
+  width: 16px;
+}
+.close svg {
+  width: 16px;
+}
+.modal-wrapper {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+#modal {
+  opacity: 0;
+  transition: opacity;
+  visibility: hidden;
+}
+#modal:target {
+  opacity: 1;
+  visibility: visible;
+}
+#modal:target .modal-body {
+  opacity: 1;
+  transform: translateY(1);
+}
+#modal .modal-body {
+  max-width: 500px;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity;
+  width: 100%;
+  z-index: 1;
+}
+.outside-trigger {
+  bottom: 0;
+  cursor: default;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.button__link {
+  text-decoration: none;
+}
