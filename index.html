@@ -1,107 +1,210 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="es">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8"/>
-        <title>Escultura</title>
-    </head>
-    <body>
-        <div class="container">
-            <form id="contactForm">
-                <div class="row">
-                    <h1 style="color: #fff;">Formulario Escultura</h4>
-                        <h4 style="color: #fff;">Nombre</h4>
-                    <div class="input-group input-group-icon"><input id="name" type="text" placeholder="Nombre"/>
-                        <div class="input-icon"><i class="fa fa-user"></i></div>
-                    </div>
-                    <h4 style="color: #fff;">Edad*</h4>
-                    <div class="input-group input-group-icon">
-                        <input type="number" id="age" name="age" min="10" max="100" placeholder="Edad*" required>
-                        <div class="input-icon"><i class="fa fa-user"></i></div>
-                    </div>
-                    <div class="input-group input-group-icon" style="margin-bottom: 0;">
-                        <h4 style="color: #fff;">Genero*</h4>
-                        <div class="input-group"><input id="gender-male" type="radio" name="gender" value="male" required /><label for="gender-male" id="labelChoice">Hombre</label><input id="gender-female" type="radio" name="gender" value="female"/><label for="gender-female" id="labelChoice">Mujer</label></div>
-                    </div>
-                    <h4 style="color: #fff;">Procedencia*</h4>
-                    <div class="input-group input-group-icon">
-                        <select  id="country" required>
-                            <option value="DIF">Distrito Federal</option>
-                            <option value="AGS">Aguascalientes</option>
-                            <option value="BCN">Baja California</option>
-                            <option value="BCS">Baja California Sur</option>
-                            <option value="CAM">Campeche</option>
-                            <option value="CHP">Chiapas</option>
-                            <option value="CHI">Chihuahua</option>
-                            <option value="COA">Coahuila</option>
-                            <option value="COL">Colima</option>
-                            <option value="DUR">Durango</option>
-                            <option value="GTO">Guanajuato</option>
-                            <option value="GRO">Guerrero</option>
-                            <option value="HGO">Hidalgo</option>
-                            <option value="JAL">Jalisco</option>
-                            <option value="MEX">M&eacute;xico</option>
-                            <option value="MIC">Michoac&aacute;n</option>
-                            <option value="MOR">Morelos</option>
-                            <option value="NAY">Nayarit</option>
-                            <option value="NLE">Nuevo Le&oacute;n</option>
-                            <option value="OAX">Oaxaca</option>
-                            <option value="PUE">Puebla</option>
-                            <option value="QRO">Quer&eacute;taro</option>
-                            <option value="ROO">Quintana Roo</option>
-                            <option value="SLP">San Luis Potos&iacute;</option>
-                            <option value="SIN">Sinaloa</option>
-                            <option value="SON">Sonora</option>
-                            <option value="TAB">Tabasco</option>
-                            <option value="TAM">Tamaulipas</option>
-                            <option value="TLX">Tlaxcala</option>
-                            <option value="VER">Veracruz</option>
-                            <option value="YUC">Yucat&aacute;n</option>
-                            <option value="ZAC">Zacatecas</option>
-                            <option value="ZAC">Otro país</option>
-                        </select>
-                    </div>
-                    <div class="input-group input-group-icon" style="margin-bottom: 0;">
-                        <h4 style="color: #fff;">¿Perteneces a un grupo motociclista?*</h4>
-                        <div class="input-group"><input id="biker-yes" type="radio" name="bikerGroup" value="yes"   required /><label for="biker-yes" id="labelChoice1">Sí</label><input id="biker-no"  type="radio" name="bikerGroup" value="no" /><label for="biker-no" id="labelChoice2">No</label></div>
-                    </div>
-                    <div class="input-group input-group-icon" hidden id="bikerGroupName"><input id="bikerInput" type="text" placeholder="Nombre del grupo motociclista" />
-                        <div class="input-icon"><i class="fa fa-user"></i></div>
-                    </div>
-                    <h4 style="color: #fff;">Correo electronico</h4>
-                    <div class="input-group input-group-icon"><input type="email" placeholder="correo@ejemplo.com" />
-                        <div class="input-icon"><i class="fa fa-envelope"></i></div>
-                    </div>
-
-                    <div>
-                        <h4 style="color: #fff;">Adjunta tu fotografía</h4>
-                        <input id="fileInput" type="file" name="image" accept="image/*">
-                    </div>
-                    <button class="button-31" role="button" href="#modal">Enviar</button>
-            </form>
-        </div>
-        <div class="card" style="display: none;">
-                <a href="#modal" role="button" class="button button__link">Modal Trigger</a>
-        </div>
-            
-            <!-- Modal -->
-            <div class="modal-wrapper" id="modal">
-                <div class="modal-body card">
-                <div class="modal-header">
-                    <h2 class="heading">Modal Header</h2>
-                    <a href="#!" role="button" class="close" aria-label="close this modal">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
-                    </svg>
-                    </a>
-                </div>
-                <p>Simple example using the <code>:target</code> selector to open a modal.</p>
-                </div>
-                <a href="#!" class="outside-trigger"></a>
-        </div>
-    </body>
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="scripts/saveData.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
+    <body class="font-mono bg-gray-400">
+		<!-- Container -->
+		<div class="container mx-auto">
+			<div class="flex justify-center px-6 my-12">
+				<!-- Row -->
+				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
+					<!-- Col -->
+					<div
+						class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+						style="background-image: url('https://source.unsplash.com/Mv9hjnEUHR4/600x800')"
+					></div>
+					<!-- Col -->
+					<div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+						<h3 class="pt-4 text-2xl text-center text-gray-700 text-sm font-bold ">Danos tu opinión!</h3>
+						<form id="contactForm" class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+							<div class="mb-4 md:flex md:justify-between">
+								<div class="mb-4 md:mr-2 md:mb-0">
+									<label class="block mb-2 text-sm font-bold text-gray-700" for="name">
+										Nombre
+									</label>
+									<input
+										class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+										id="name"
+										type="text"
+										placeholder="Nombre"
+									/>
+								</div>
+								<div class="md:ml-2">
+									<label class="required block mb-2 text-sm font-bold text-gray-700" for="age">
+										Edad
+									</label>
+									<input
+										class="w-1/2 px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+										id="age"
+										type="number"
+										placeholder="Edad"
+                                        required
+									/>
+								</div>
+							</div>
+                            <div class="mb-4 md:flex md:justify-between">
+								<div class="mb-4 md:mr-2 md:mb-0">
+									<label class="required block mb-2 text-sm font-bold text-gray-700" for="country">
+										Procedencia
+									</label>
+                                    <select required id="country"
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow focus:outline-none focus:shadow-outline">
+										<option disabled selected value="">Estado</option>
+                                        <option value="DIF">Distrito Federal</option>
+                                        <option value="AGS">Aguascalientes</option>
+                                        <option value="BCN">Baja California</option>
+                                        <option value="BCS">Baja California Sur</option>
+                                        <option value="CAM">Campeche</option>
+                                        <option value="CHP">Chiapas</option>
+                                        <option value="CHI">Chihuahua</option>
+                                        <option value="COA">Coahuila</option>
+                                        <option value="COL">Colima</option>
+                                        <option value="DUR">Durango</option>
+                                        <option value="GTO">Guanajuato</option>
+                                        <option value="GRO">Guerrero</option>
+                                        <option value="HGO">Hidalgo</option>
+                                        <option value="JAL">Jalisco</option>
+                                        <option value="MEX">M&eacute;xico</option>
+                                        <option value="MIC">Michoac&aacute;n</option>
+                                        <option value="MOR">Morelos</option>
+                                        <option value="NAY">Nayarit</option>
+                                        <option value="NLE">Nuevo Le&oacute;n</option>
+                                        <option value="OAX">Oaxaca</option>
+                                        <option value="PUE">Puebla</option>
+                                        <option value="QRO">Quer&eacute;taro</option>
+                                        <option value="ROO">Quintana Roo</option>
+                                        <option value="SLP">San Luis Potos&iacute;</option>
+                                        <option value="SIN">Sinaloa</option>
+                                        <option value="SON">Sonora</option>
+                                        <option value="TAB">Tabasco</option>
+                                        <option value="TAM">Tamaulipas</option>
+                                        <option value="TLX">Tlaxcala</option>
+                                        <option value="VER">Veracruz</option>
+                                        <option value="YUC">Yucat&aacute;n</option>
+                                        <option value="ZAC">Zacatecas</option>
+                                        <option value="ZAC">Otro país</option>
+                                    </select>
+								</div>
+							</div>
+                            <div class="mb-4 md:flex md:justify-between">
+								<div class="mb-4 md:mr-2 md:mb-0">
+									<label class="required block mb-2 text-sm font-bold text-gray-700">
+										Genero
+									</label>
+                                    <div class="flex items-center justify-center">
+                                        <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg" role="group">
+                                            <div>
+                                                <input class="hidden" id="gender-male" type="radio" name="radio" required>
+                                                <label class="flex flex-col p-4 border-2 border-gray-400 cursor-pointer" for="gender-male">
+                                                    <span class="text-xs font-semibold uppercase">Hombre</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <input class="hidden" id="gender-female" type="radio" name="radio">
+                                                <label class="flex flex-col p-4 border-2 border-gray-400 cursor-pointer" for="gender-female">
+                                                    <span class="text-xs font-semibold uppercase">Mujer</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+							<div class="mb-4 md:flex md:justify-between">
+								<div class="mb-4 md:mr-2 md:mb-0">
+									<label class="required block mb-2 text-sm font-bold text-gray-700">
+										¿Perteneces a un grupo motociclista?
+									</label>
+                                    <div class="flex mb-3 ">
+                                        <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg" role="group">
+                                            <div>
+                                                <input class="hidden" id="biker-yes" type="radio" name="bikerGroup" required>
+                                                <label class="flex flex-col p-4 border-2 border-gray-400 cursor-pointer" for="biker-yes">
+                                                    <span class="text-xs font-semibold uppercase">Sí</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <input class="hidden" id="biker-no" type="radio" name="bikerGroup">
+                                                <label class=" flex flex-col p-4 border-2 border-gray-400 cursor-pointer" for="biker-no">
+                                                    <span class="text-xs font-semibold uppercase">No</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+									<input
+									hidden
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									id="bikerInput"
+									type="text"
+									placeholder="Nombre del grupo"
+									/>
+								</div>
+							</div>
+							<div class="mb-4">
+								<label class="required block mb-2 text-sm font-bold text-gray-700">
+									¿Qué significó para ti el memorial?
+								</label>
+								<textarea required
+								class="
+									form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding
+									border border-solid border-gray-300 shadow rounded
+									transition ease-in-out m-0
+									focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+								id="opinion"
+								rows="3"
+								placeholder="Escribe tu opinion"></textarea>
+							</div>
+							<div class="mb-4">
+								<label class="required block mb-2 text-sm font-bold text-gray-700">
+									¿Qué propones para evitar la muerte de más hermanos motociclistas?
+								</label>
+								<textarea required
+								class="
+									form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding
+									border border-solid border-gray-300 shadow rounded
+									transition ease-in-out m-0
+									focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+								id="opinion2"
+								rows="3"
+								placeholder="Escribe tu opinion"></textarea>
+							</div>
+							<div class="mb-4">
+								<label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+									Email
+								</label>
+								<input
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									id="email"
+									type="email"
+									placeholder="Email"
+								/>
+							</div>
+							<div class="mb-4">
+								<label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+									Adjunta tu fotografía!
+								</label>
+								<input id="fileInput" type="file" name="image" accept="image/*">
+							</div>
+							<div class="mb-6 text-center">
+								<button
+									class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+									type="submit"
+								>
+									Enviar
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</body>
+<script type="module" src="scripts/saveData.js"></script>
+<script type="text/javascript" src="scripts/main.js"></script>
+<link rel="stylesheet" href="style.css">
 </html>
