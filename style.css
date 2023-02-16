@@ -9,8 +9,3 @@ input:checked + label {
     font-weight: bold;
     color: red; 
 }
-
-body{
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-}
